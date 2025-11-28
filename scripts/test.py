@@ -6,6 +6,7 @@ from transformers import GenerationConfig
 import os
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel, PeftConfig
+import config
 
 def parse_prompts_file(prompts_file):
     """
@@ -257,7 +258,7 @@ def generate_single_sql(prompt_text, model, tokenizer, device=None):
     return sql
 
 # 加载模型和tokenizer
-model_path = "/root/.cache/modelscope/hub/models/qwen/Qwen2___5-1___5B-Instruct"
+model_path = config.model_path
 print(f"从本地加载模型: {model_path}")
 
 if not os.path.exists(model_path):
